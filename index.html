@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoCompare - Real-time Cryptocurrency Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-coins"></i> CryptoCompare</h1>
+        <p>Real-time cryptocurrency prices and comparisons</p>
+    </header>
+
+    <main>
+        <section id="controls">
+            <div class="sort-options">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="market_cap_desc">Market Cap (High to Low)</option>
+                    <option value="market_cap_asc">Market Cap (Low to High)</option>
+                    <option value="price_desc">Price (High to Low)</option>
+                    <option value="price_asc">Price (Low to High)</option>
+                    <option value="volume_desc">Volume (High to Low)</option>
+                    <option value="volume_asc">Volume (Low to High)</option>
+                    <option value="id_asc">Name (A-Z)</option>
+                    <option value="id_desc">Name (Z-A)</option>
+                </select>
+            </div>
+            <div class="display-options">
+                <label><input type="checkbox" id="showChanges"> Show 24h Changes</label>
+                <label><input type="checkbox" id="darkMode"> Dark Mode</label>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>Comparison <span id="comparison-count">(0/5)</span></h2>
+            <div id="comparison-container" class="empty">
+                <p>Select up to 5 cryptocurrencies to compare</p>
+            </div>
+            <button id="clear-comparison" class="hidden">Clear Comparison</button>
+        </section>
+
+        <section id="crypto-list">
+            <h2>Cryptocurrencies</h2>
+            <div id="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading cryptocurrency data...
+            </div>
+            <div id="crypto-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data provided by <a href="https://www.coingecko.com/" target="_blank">CoinGecko API</a></p>
+        <p>Updated every minute | Last updated: <span id="last-updated">2025</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

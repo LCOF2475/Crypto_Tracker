@@ -1,0 +1,395 @@
+:root {
+    --primary-color: #2962ff;
+    --secondary-color: #448aff;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --card-bg: #fff;
+    --border-color: #e0e0e0;
+    --positive-change: #4caf50;
+    --negative-change: #f44336;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --header-bg: #2962ff;
+    --header-text: #fff;
+    --footer-bg: #f5f5f5;
+    --footer-text: #666;
+}
+
+.dark-mode {
+    --primary-color: #448aff;
+    --secondary-color: #82b1ff;
+    --text-color: #e0e0e0;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --positive-change: #81c784;
+    --negative-change: #e57373;
+    --shadow: 0 2px 5px rgba(0,0,0,0.3);
+    --header-bg: #0d47a1;
+    --header-text: #fff;
+    --footer-bg: #1e1e1e;
+    --footer-text: #aaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+main {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.sort-options, .display-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+select, button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+#comparison {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+#comparison-count {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: normal;
+}
+
+#comparison-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    min-height: 100px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#comparison-container.empty {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.comparison-item {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.remove-comparison {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--negative-change);
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.comparison-item img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.comparison-item .price {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.comparison-item .change {
+    font-size: 0.9rem;
+}
+
+.positive {
+    color: var(--positive-change);
+}
+
+.negative {
+    color: var(--negative-change);
+}
+
+#clear-comparison {
+    margin-top: 1rem;
+    display: none;
+}
+
+#clear-comparison.visible {
+    display: inline-block;
+}
+
+#crypto-list {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+#loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+#crypto-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.crypto-card {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+}
+
+.crypto-card.selected {
+    border: 2px solid var(--primary-color);
+}
+
+.crypto-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.crypto-card-header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.crypto-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.crypto-symbol {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.crypto-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.crypto-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.crypto-market-cap, .crypto-volume {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.crypto-change {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.add-to-comparison {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-to-comparison:hover {
+    background-color: var(--secondary-color);
+}
+
+.add-to-comparison.selected {
+    background-color: var(--negative-change);
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    #controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #crypto-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .crypto-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    header p {
+        font-size: 0.9rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .sort-options, .display-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
