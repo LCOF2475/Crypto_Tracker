@@ -109,7 +109,7 @@ async function fetchCryptocurrencies() {
         
         // Fetch data from CoinGecko API
         const response = await fetch(
-            `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=${sortField}_${sortOrder}&per_page=100&page=1&sparkline=false&x_cg_demo_api_key=CG-mL1yxtSYTdorKBRTUp32o3tw`
+            `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=${sortField}_${sortOrder}&per_page=100&page=1&sparkline=false&x_cg_demo_api_key=`
           );
         
         if (!response.ok) {
